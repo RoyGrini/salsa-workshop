@@ -48,7 +48,7 @@ jobs:
         with:
           cosign-release: 'v2.0.0'
       - name: Sign the container image
-        run: cosign sign --yes ghcr.io/roygrini/salsa-workshop@steps.build-push.outputs.digest }}
+        run: cosign sign --yes ghcr.io/roygrini/salsa-workshop@${{ steps.build-push.outputs.digest }}
       - name: Create SBOM
         uses: aquasecurity/trivy-action@master
         with:
